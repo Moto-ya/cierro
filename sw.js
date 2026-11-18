@@ -1,4 +1,4 @@
-const CACHE = 'cierro-1795022375477';
+const CACHE = 'cierro-1795035761278';
 const ARCHIVOS = ['./', 'index.html', 'manifest.webmanifest', 'icono.svg',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
