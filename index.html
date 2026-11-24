@@ -796,21 +796,22 @@ label.campo.req { flex-direction: column; }
 .ruta-menu { margin: 2px 0 6px; }
 /* ===== 0.8 · metas del mes en el menú ===== */
 .metas-menu { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 16px; border: 1px solid var(--borde); border-radius: 22px; background: #fff; text-align: left; cursor: pointer; font: inherit; color: inherit; }
-.mm-cab { display: flex; justify-content: space-between; align-items: baseline; }
-.mm-cab b { font-family: var(--f-titulo); font-size: 17px; color: var(--bosque); }
-.mm-cab span { font-size: 12.5px; color: var(--oliva); }
+.mm-cab { display: flex; flex-direction: column; gap: 4px; }
+.mm-cab b { font-family: var(--f-titulo); font-size: 18px; font-weight: 800; color: var(--bosque); }
+.mm-dia { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--oliva); }
+.mm-dia .ico { width: 16px; height: 16px; color: var(--bosque-ola, #166534); }
 .mm-anillos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .mm-anillo { display: flex; align-items: center; gap: 6px; background: #F4F5F0; border-radius: 16px; padding: 8px 10px; min-width: 0; }
-.mm-anillo svg { width: 54px; height: 54px; }
+.mm-anillo svg.mm-svg { width: 58px; height: 58px; flex-shrink: 0; }
 .mm-txt { display: flex; flex-direction: column; min-width: 0; }
 .mm-txt small { font-size: 12px; color: var(--oliva); font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
 .mm-txt b { font-size: 16px; color: var(--bosque); white-space: nowrap; }
 .mm-txt span { font-size: 12px; color: var(--oliva); white-space: nowrap; }
-@media (max-width: 370px) { .mm-txt b { font-size: 14.5px; } .mm-anillo svg { width: 48px; height: 48px; } .mm-anillo { padding: 8px; } }
+@media (max-width: 370px) { .mm-txt b { font-size: 15px; } .mm-anillo svg.mm-svg { width: 52px; height: 52px; } .mm-anillo { padding: 8px; gap: 6px; } }
 .mm-sin { font-size: 12px; color: var(--oliva); width: 62px; text-align: center; }
 .mm-lineas { display: flex; flex-direction: column; gap: 9px; }
-.mm-linea { display: grid; grid-template-columns: 22px 92px 1fr 40px; align-items: center; gap: 8px; }
-.mm-ico .ico, .mm-ico svg { width: 20px; height: 20px; color: var(--bosque-ola, #166534); }
+.mm-linea { display: grid; grid-template-columns: 22px 96px 1fr 46px; align-items: center; gap: 8px; }
+.mm-ico .ico, .mm-ico svg { width: 22px; height: 22px; color: var(--bosque-ola, #166534); fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .mm-nom { font-size: 13.5px; font-weight: 600; color: var(--bosque); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mm-barra { position: relative; height: 10px; border-radius: 6px; background: #E7ECE6; }
 .mm-barra > span { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; background: #22C55E; }
@@ -822,6 +823,47 @@ label.campo.req { flex-direction: column; }
 .mm-ley i { display: inline-block; width: 2px; height: 12px; background: #14532D; }
 .mm-ver { display: flex; align-items: center; justify-content: flex-end; gap: 4px; font-size: 13.5px; font-weight: 700; color: var(--bosque-ola, #166534); border-top: 1px solid var(--borde); padding-top: 10px; }
 .mm-ver .ico { width: 16px; height: 16px; }
+.mm-vacia { cursor: default; }
+.mm-vacia .btn { width: 100%; }
+.mm-falta { justify-content: center; text-align: center; }
+.mm-falta .mm-txt b { color: var(--oliva); }
+.falta-cargo { display: block; border: 0; background: none; text-align: left; padding: 4px 0 6px; font: inherit; font-size: 14px; color: var(--oliva); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* saludo más compacto en el menú */
+.saludo h1 { font-size: clamp(24px, 6.6vw, 29px); }
+.saludo .cargo { font-size: 15px; }
+.saludo .zona { font-size: 14.5px; }
+.saludo .zona .ico { width: 17px; height: 17px; }
+.falta-cargo { font-size: 13.5px; }
+.modulo.ancho.inv { border: 1.5px solid var(--bosque-ola, #166534); }
+.modulo.ancho.inv .ico { color: var(--bosque-ola, #166534); }
+/* ===== 0.8 · botón «Consultar productos en bodega» con relieve ===== */
+.bodega-btn { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 10px 10px 20px; margin: 4px 0; border: 4px solid #22A045; border-radius: 40px; cursor: pointer; font: inherit; text-align: left; -webkit-tap-highlight-color: transparent;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F3F2 55%, #E2E6E4 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.95), inset 0 -3px 5px rgba(0,0,0,.10), 0 4px 0 #17803A, 0 8px 14px rgba(20,83,45,.25); }
+.bodega-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.bodega-txt b { font-family: var(--f-titulo); font-weight: 800; font-size: 17.5px; line-height: 1.15; color: #179A3C; text-shadow: 0 1px 0 rgba(255,255,255,.9); }
+.bodega-txt small { font-size: 12.5px; color: #3F5A4A; }
+.bodega-bola { width: 54px; height: 54px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;
+  background: radial-gradient(circle at 35% 28%, #6EE7A0 0%, #22C55E 38%, #15803D 100%); box-shadow: inset 0 -4px 7px rgba(0,0,0,.28), inset 0 3px 6px rgba(255,255,255,.4), 0 0 0 3px #15803D; }
+.bodega-bola::before { content: ""; position: absolute; top: 7px; left: 12px; width: 22px; height: 11px; border-radius: 50%; background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,0)); transform: rotate(-20deg); }
+.bodega-bola svg { width: 28px; height: 28px; position: relative; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 1px 1px rgba(0,0,0,.3)); }
+.bodega-btn:active { transform: translateY(2px); box-shadow: inset 0 2px 0 rgba(255,255,255,.95), inset 0 -2px 4px rgba(0,0,0,.12), 0 2px 0 #17803A, 0 4px 8px rgba(20,83,45,.25); }
+.bodega-btn:focus-visible { outline: 3px solid #86EFAC; outline-offset: 3px; }
+@media (max-width: 370px) { .bodega-txt b { font-size: 16px; } .bodega-bola { width: 48px; height: 48px; } }
+/* ===== 0.8 · ajustes de estética (23 nov) ===== */
+.bodega-txt b { font-size: 20px; }
+.bodega-txt small { font-size: 11.5px; }
+@media (max-width: 370px) { .bodega-txt b { font-size: 18.5px; } }
+.ruta-btn { transition: transform .08s; }
+.ruta-btn:active { transform: translateY(3px); }
+.ruta-btn:active .ruta-barra { box-shadow: inset 0 2px 0 rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.3), 0 2px 6px rgba(20,83,45,.3); }
+.ruta-btn:active .ruta-aro { box-shadow: 0 2px 6px rgba(0,0,0,.25), inset 0 1px 2px rgba(255,255,255,.9); }
+.bodega-btn { transition: transform .08s; }
+.marca-menu { gap: 10px; padding-bottom: 13px; }
+.marca-menu > svg { width: 46px; height: 46px; }
+.marca-menu > b { font-size: 33px; }
+.con-firma .firma { left: 2px; right: auto; font-size: 9.5px; font-weight: 700; letter-spacing: .3px; }
 </style>
 </head><body>
 <main id="app" aria-live="polite"></main>
@@ -948,12 +990,12 @@ var qa='<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><path
 barra=(ico,txt,meta,p,nota)=>`<div class="act-fila"><div class="act-dato">${ico}<b>${txt}</b><span class="num">${meta?Math.round(p)+" %":"Sin meta"}</span></div><span class="act-nota">${nota}</span><div class="act-barra"><span style="width:${meta?pct(p):0}%"></span></div></div>`,
 mod=([t,i,s])=>`<button class="modulo" data-ir="${t}">${H(t)}<b>${i}</b><small>${s}</small></button>`,
 ancho=([t,i,s],extra="")=>`<button class="modulo ancho ${extra}" data-ir="${t}">${H(t)}<span><b>${i}</b><small>${s}</small></span></button>`;
-return`${OLAS}<div class="menu-cabeza"><div class="marcas"><span class="con-firma marca-menu">${qa}<b>Cierro</b><small class="firma">Creado por: Blefos</small></span>${emp?`<span class="logo-cliente">${emp.logo?`<img src="${v(emp.logo)}" alt="${v(emp.nombre)}">`:v(emp.nombre)}</span>`:""}</div><span class="chip dia">${ICO_CALENDARIO}Semana ${ra()} \xB7 ${ba[na()].replace(/^./,c=>c.toUpperCase())}</span></div>
-  <div class="saludo"><h1>\xA1Hola, ${v(as.nombre||"Antonio")}!</h1>${as.cargo?`<p class="cargo">${v(as.cargo)}</p>`:""}${as.zona?`<p class="zona">${ICO_PIN}${v(as.zona)}</p>`:""}</div>
+return`${OLAS}<div class="menu-cabeza"><div class="marcas"><span class="con-firma marca-menu">${qa}<b>Cierro</b><small class="firma">Creado por: Blefos</small></span>${emp?`<span class="logo-cliente">${emp.logo?`<img src="${v(emp.logo)}" alt="${v(emp.nombre)}">`:v(emp.nombre)}</span>`:""}</div></div>
+  <div class="saludo"><h1>\xA1Hola, ${v(as.nombre||"Antonio")}!</h1>${as.cargo?`<p class="cargo">${v(as.cargo)}</p>`:""}${as.zona?`<p class="zona">${ICO_PIN}${v(as.zona)}</p>`:""}${!as.cargo&&!as.zona?`<button class="falta-cargo" data-ir="ajustes">Agrega tu cargo y zona en Ajustes (modo administrador)</button>`:""}</div>
   ${btnRutaMenu()}
   ${metasMenu()}
+  ${btnBodega('data-ir="inventario"')}
   <div class="mosaico">${no.slice(0,6).map(mod).join("")}</div>
-  ${ancho(["inventario","Consultar producto","Precio y existencia, tambi\xE9n sin internet"],"inv")}
   <div class="rejilla2">${no.slice(6).map(x=>ancho(x,"pronto")).join("")}${l.admin?ancho(["datos","Cargar reportes","Cartera, clientes y precios"],"admin"):""}</div>
   <div class="rejilla2"><button class="btn" data-ir="hallazgos">${H("hallazgo")}Reportar hallazgo</button><button class="btn" data-ir="ajustes">${H("ajustes")}Ajustes</button></div>`};function jo(){let a=j(),e=new Set(ga(m.rutero).map(i=>i.clienteId)),o=m.cobros.filter(i=>i.tipo==="compromiso"&&promAbierta(i)&&i.fechaCompromiso<=a),t=m.facturas.filter(i=>e.has(i.clienteId)&&i.estado==="en_cartera"&&i.vence&&i.vence<=U(a,3)&&saldoVivo(i)>0);return[...o.map(i=>({clienteId:i.clienteId,valor:faltaProm(i)})),...t.map(i=>({clienteId:i.clienteId,valor:saldoVivo(i)}))]}var co=(a,e)=>{let t=2*Math.PI*32,i=Math.max(0,Math.min(100,a||0));return`<svg viewBox="0 0 80 80" width="76" height="76" role="img" aria-label="${e}: ${Math.round(a||0)} por ciento" style="flex-shrink:0">
     <circle cx="40" cy="40" r="32" fill="none" stroke="var(--suave)" stroke-width="9"></circle>
@@ -1493,7 +1535,8 @@ A.consulta=()=>{let a=l.vista==="consulta"?Y():null,sel=l.cqSel?cqItems().find(x
   <label class="cq-buscar">${H("buscar")}<input id="cq-busca" type="search" placeholder="Nombre, referencia, marca o presentaci\xF3n" value="${v(l.cqTexto||"")}" autocomplete="off" autocapitalize="off" enterkeyhint="search" aria-label="Buscar producto"></label>
   <div id="cq-det">${sel?cqDetalle(sel,a):""}</div>
   <div class="lista" id="cq-res">${cqResHtml()}</div>`};A.inventario=A.consulta;
-function btnConsulta(){return`<button class="btn consulta-btn" data-ir="consulta">${H("buscar")}<span><b>Consultar producto</b><small>Precio y existencia para responder al cliente</small></span></button>`}
+function btnConsulta(){return btnBodega('data-ir="consulta"')}
+function btnBodega(attr){return`<button type="button" class="bodega-btn" ${attr}><span class="bodega-txt"><b>Consultar productos en bodega</b><small>Precio y existencias \xB7 funciona sin internet</small></span><span class="bodega-bola" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6l6 6-6 6M13 6l6 6-6 6"/></svg></span></button>`}
 function consultasCli(a){let cs=(m.consultas||[]).filter(c=>c.clienteId===a.id).sort((x,y0)=>(y0.hora||"").localeCompare(x.hora||"")),vis=new Set,u=[];for(let c of cs)vis.has(c.codigo)||(vis.add(c.codigo),u.push(c));if(!u.length)return"";return`<div class="tarjeta pila cq-interes"><span class="etiqueta">Ha preguntado por</span><div class="lista">${u.slice(0,5).map(c=>{let ped=m.pedidos.find(p=>p.clienteId===a.id&&p.tipo==="pedido"&&(p.fecha||"")>=c.fecha&&(p.lineas||[]).some(x=>String(x.codigo).toUpperCase()===c.codigo));return`<button class="item" data-cqver="${v(c.codigo)}"><span class="crece" style="flex:1;min-width:0"><b>${v(c.descripcion||c.codigo)}</b><br><span class="peq sec">${V(c.fecha)}${c.precio!=null?" \xB7 "+O(c.precio*(1+(c.iva||0)/100))+" con IVA":""}</span></span><span class="chip ${ped?"":"alerta"}">${ped?"Compr\xF3":"Sin compra"}</span></button>`}).join("")}</div></div>`}
 async function cqAnotar(x){let a=Y();if(!a||l.vista!=="consulta")return;let hoy=j();if((m.consultas||[]).some(c=>c.clienteId===a.id&&c.codigo===x.codigo&&c.fecha===hoy))return;let r=E({clienteId:a.id,codigo:x.codigo,productoId:x.prod?.id||null,descripcion:x.descripcion,precio:x.precio,iva:x.iva,existencia:x.inv?x.inv.total:null,corteInventario:invAsegurar.imp?.fechaCorte||null,fecha:hoy,hora:ia(),visitaId:oa(a.id)?.id||null,busqueda:l.cqTexto||""});await L("consultas",r)}
 document.addEventListener("input",ev=>{if(ev.target.id!=="cq-busca")return;l.cqTexto=ev.target.value,l.cqSel=null;let d=document.getElementById("cq-det"),r=document.getElementById("cq-res");d&&(d.innerHTML=""),r&&(r.innerHTML=cqResHtml())});
@@ -1507,12 +1550,17 @@ document.addEventListener("click",async ev=>{let b=ev.target.closest('[data-acci
 function logoInicioGuardar(em){let lg=em?.logo||"",nm=em?.nombre||"";(W.leer("logoEmpresa")||"")!==lg&&W.escribir("logoEmpresa",lg),(W.leer("nombreEmpresa")||"")!==nm&&W.escribir("nombreEmpresa",nm)}
 function logoInicioHtml(){let lg=W.leer("logoEmpresa");return lg&&/^data:image\//.test(lg)?`<div class="logo-inicio"><img src="${lg}" alt="${v(W.leer("nombreEmpresa")||"Logo de la empresa")}"></div>`:""}
 function btnRutaMenu(){let e=Qa(m.rutero,m.visitas),o=jo(),vc=o.reduce((u,f)=>u+f.valor,0),i=W.leer("jornada")===j(),pv=e.pendientes.length;return`<div class="ruta-menu">${e.plan.length?pv?btnRuta('data-accion="empezar"',i&&e.hechos.length?"Contin\xFAa tu ruta":"Inicia tu ruta aqu\xED",i&&e.hechos.length?`Vas en el cliente ${e.hechos.length+1} de ${e.plan.length}`:`${pv} ${pv===1?"cliente":"clientes"} \xB7 ${o.length?`${o.length} ${o.length===1?"cobro":"cobros"} por ${O(vc)}`:"sin cobros programados"}`,"play"):btnRuta('data-ir="fin"',"Ruta completa","Mira c\xF3mo te fue hoy","check"):btnRuta('data-ir="ruta"',"Arma tu ruta de hoy","Elige los clientes que vas a visitar","ruta")}</div>`}
-function metasMenu(){let a=ke(m,q),t=fe(m.pedidos,q),dias=ve(j().slice(0,7)),hechos=dias.filter(d=>d<=j()).length,esp=dias.length?hechos/dias.length*100:0,col=p=>p>=esp-2?"va-bien":p>=esp-15?"va-cerca":"va-lejos",
-an=(p,tit,val,de,sin)=>`<div class="mm-anillo">${sin?`<span class="mm-sin">Sin meta</span>`:ANILLO(p)}<span class="mm-txt"><small>${tit}</small><b class="num">${val}</b><span class="num">de ${de}</span></span></div>`;
-return`<button class="metas-menu" data-ir="hoy" aria-label="Ver tus actividades de hoy"><span class="mm-cab"><b>Metas del mes</b><span class="num">D\xEDa h\xE1bil ${hechos} de ${dias.length}</span></span>
+function metasMenu(){if(!ke(m,q).ventas.meta&&!ke(m,q).recaudo.meta)return`<div class="metas-menu mm-vacia"><span class="mm-cab"><b>Metas del mes</b><span class="mm-dia">${ICO_CALENDARIO}Semana ${ra()} \xB7 ${(ba[na()]||"").replace(/^./,c=>c.toUpperCase())}</span></span><span class="sec">A\xFAn no tienes metas este mes. Con ellas ver\xE1s aqu\xED tu avance de ventas, recaudo y cada l\xEDnea, y el ritmo que llevas.</span><button class="btn primario" data-ir="meta">${H("meta")}Poner mis metas</button></div>`;let a=ke(m,q),t=fe(m.pedidos,q),dias=ve(j().slice(0,7)),hechos=dias.filter(d=>d<=j()).length,esp=dias.length?hechos/dias.length*100:0,col=p=>p>=esp-2?"va-bien":p>=esp-15?"va-cerca":"va-lejos",
+an=(p,tit,val,de,sin)=>sin?`<div class="mm-anillo mm-falta"><span class="mm-txt"><small>${tit}</small><b>Sin meta</b><span>Toca para ponerla</span></span></div>`:`<div class="mm-anillo">${mmAnillo(p)}<span class="mm-txt"><small>${tit}</small><b class="num">${val}</b><span class="num">de ${de}</span></span></div>`;
+return`<button class="metas-menu" data-ir="hoy" aria-label="Ver tus actividades de hoy"><span class="mm-cab"><b>Metas del mes</b><span class="mm-dia">${ICO_CALENDARIO}Semana ${ra()} \xB7 ${(ba[na()]||"").replace(/^./,c=>c.toUpperCase())} \xB7 d\xEDa h\xE1bil ${hechos} de ${dias.length}</span></span>
   <span class="mm-anillos">${an(a.ventas.porcentaje,"Ventas",O(a.ventas.vendido),O(a.ventas.meta),!a.ventas.meta)}${an(a.recaudo.porcentaje,"Recaudo",O(a.recaudo.recaudado),O(a.recaudo.meta),!a.recaudo.meta)}</span>
   ${t.lineas.length?`<span class="mm-lineas">${t.lineas.map(u=>{let p=u.meta?Math.round(u.porcentaje):null;return`<span class="mm-linea"><span class="mm-ico">${icoLinea(u.nombre)}</span><span class="mm-nom">${v(u.nombre)}</span><span class="mm-barra"><span class="${p==null?"":col(p)}" style="width:${Math.max(0,Math.min(100,p||0))}%"></span><i style="left:${Math.min(100,esp).toFixed(1)}%"></i></span><b class="num">${p==null?"—":p+"%"}</b></span>`}).join("")}</span><span class="mm-ley"><i></i>Ritmo esperado a hoy</span>`:""}
-  <span class="mm-ver">Ver tus actividades de hoy ${H("sig")}</span></button>`}D();})();
+  <span class="mm-ver">Ver tus actividades de hoy ${H("sig")}</span></button>`}
+
+function mmAnillo(p){let r=27,c=2*Math.PI*r,x=Math.max(0,Math.min(100,p||0)),col=p>=100||p>=70?"var(--meta)":"var(--alerta)";return`<svg class="mm-svg" viewBox="0 0 64 64" role="img" aria-label="${Math.round(p||0)} por ciento"><circle cx="32" cy="32" r="${r}" fill="none" stroke="var(--suave)" stroke-width="7"/><circle cx="32" cy="32" r="${r}" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${(c*x/100).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 32 32)"/><text x="32" y="36.5" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="14" fill="var(--bosque)">${Math.round(p||0)}%</text></svg>`}
+
+/* íconos de las líneas comerciales, más claros */
+ICO_LINEAS.lubric='<path d="M12 3.5s-6 6.8-6 10.8a6 6 0 0 0 12 0c0-4-6-10.8-6-10.8Z"/><path d="M9.2 14.6a2.9 2.9 0 0 0 2.8 2.9"/>';ICO_LINEAS.filtr='<rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M6 7.5h12M6 16.5h12M9.5 7.5v9M12 7.5v9M14.5 7.5v9"/>';ICO_LINEAS.herram='<path d="M7 10h3V7L6.5 3.5a6 6 0 0 1 8 8l6 6a2.1 2.1 0 0 1-3 3l-6-6a6 6 0 0 1-8-8z"/>';ICO_LINEAS.llant='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.3"/><path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21M5.6 5.6l2.5 2.5M15.9 15.9l2.5 2.5M5.6 18.4l2.5-2.5M15.9 8.1l2.5-2.5"/>';D();})();
 </script>
 <script>
 if ('serviceWorker' in navigator) {
