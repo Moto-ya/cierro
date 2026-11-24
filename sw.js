@@ -1,4 +1,4 @@
-const CACHE = 'cierro-app-0.8-1795476274';
+const CACHE = 'cierro-app-0.8-1795474905';
 const ARCHIVOS = ['./', 'index.html', 'manifest.webmanifest', 'icono.svg',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
@@ -13,7 +13,7 @@ self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) =
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
   const url = new URL(e.request.url);
-  if (url.pathname.toLowerCase().includes('/demo/')) return; // la demostración se atiende sola
+  if (url.pathname.includes('/demo/')) return; // la demostración se atiende sola
   // la página principal se pide primero a internet (para ver siempre la última versión); sin señal, la guardada
   if (e.request.mode === 'navigate') {
     const red = fetch(e.request).then((res) => { if (res.ok) { const copia = res.clone(); caches.open(CACHE).then((c) => c.put(PAGINA, copia)); } return res; });
