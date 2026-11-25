@@ -1,4 +1,4 @@
-const CACHE = 'cierro-app-0.8.3-1795629864';
+const CACHE = 'cierro-app-0.8.4-1795630998';
 const ARCHIVOS = ['./', 'index.html', 'manifest.webmanifest', 'icono.svg',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
